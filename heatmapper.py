@@ -176,7 +176,7 @@ class TrajAnalysis:
         self.heatmap.add_representation('trace', selection='all', color='grey', opacity=1)
         resid_iter = 0
         if res_rad == 0:
-            if BB_only == True:
+            if BB_only:
                 for resid in self.analyte_resids:
                     print(resid_iter)
                     print(df_data['total_contacts'].values_std[resid_iter])
@@ -188,7 +188,7 @@ class TrajAnalysis:
                     self.heatmap.add_representation(res_rep,selection=str(resid),color=sequential_colors[df_data['total_contacts'].values_std[resid_iter]],opacity=res_op)
                     resid_iter+=1
         else:
-            if BB_only == True:
+            if BB_only:
                 for resid in self.analyte_resids:
                     self.heatmap.add_representation(res_rep,selection='backbone and '+str(resid),color=sequential_colors[df_data['total_contacts'].values_std[resid_iter]],opacity=res_op,radius=res_rad)
                     resid_iter+=1
