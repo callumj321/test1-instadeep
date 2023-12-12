@@ -144,9 +144,7 @@ class TrajAnalysis:
             with Pool(self.__n_jobs) as worker_pool: # <--- Create a pool of CPUs to use
                 out = worker_pool.map(run_per_frame, self.analysis_frame_values) # <--- Run the per frame function on a select CPU
                 for i in out:
-                    print('3')
                     df_out[str(i[0])] = i[1]
-                print('4')
             df_out.to_csv('tmp\\contact_analysis_data_'+str(segid)+'.csv',index=False)
             segid_iter+=1
 
